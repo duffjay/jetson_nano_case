@@ -1,5 +1,12 @@
 // fan mount
 //  - this goes at the end where there were camera mounts
+// 
+// TODO
+// - m4_major snug @ 4.1, but acceptable
+// - the offset is wrong
+//   - was 20 mm
+//   - probably more like 10-15
+// - make the base face taller (i.e. as if there ere 4 mm of washers)
 
 base_cl = 36.0;      // distance between the holes on the base
 base_height = 13.00; // post height: 10 + rail height: 3

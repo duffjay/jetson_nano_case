@@ -1,3 +1,8 @@
+// jetson NANO
+// - early version
+// TODO
+// - fixed:  58x86
+// - do you want the fan mount threaded or pass-thru?
 
 include <post.scad>;
 include <rail.scad>;
@@ -5,11 +10,12 @@ include <hPost.scad>;
 
 postD = 5; // post diameter
 postH = 14; // post height;
-pilotD = 2.5; // pilot diameter
+pilotD = 2.5; // m2.5 pilot diameter
+              // yes, 2.5 pilot will be about right for 2.5 tap
 
-
-nanoX = 57;
-nanoY = 85; // messed up at 80
+// https://ahnbk.com/?p=625
+nanoX = 58;
+nanoY = 86; // messed up at 80
 
 // railwidth = standoff width + 1mm x 2
 railW = 10;
