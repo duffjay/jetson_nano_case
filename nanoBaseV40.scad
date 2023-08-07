@@ -19,7 +19,7 @@ nanoY = 86; // messed up at 80
 
 // railwidth = standoff width + 1mm x 2
 railW = 10;
-railH = 3;
+railH = 4;
 
 // horizontal posts
 hPilotD = 3.2;    // try 0.5 to drill this out
@@ -32,7 +32,7 @@ difference() {
     union (){
         // base
         //   
-        #rail(nanoY + railW, railW, 3);
+        rail(nanoY + railW, railW, 3);
         translate([0, nanoX, 0])
         rail(nanoY + railW, railW, 3);
         
@@ -60,11 +60,11 @@ difference() {
         // horizontal mount points for antenna
         yHPostWidth = 54;
         rotate([90,0,0])
-        translate([(nanoY/2 - yHPostWidth/2),hPostH - railH,-railW/2 + 6])
+        translate([(nanoY/2 - yHPostWidth/2),hPostH - railH + 1,-railW/2 + 6])
         hPost(hPilotD, hPostW, hPostH, hPostD);
         
         rotate([90,0,0])
-        translate([(nanoY/2 + yHPostWidth/2),hPostH - railH,-railW/2 + 6])
+        translate([(nanoY/2 + yHPostWidth/2),hPostH - railH + 1,-railW/2 + 6])
         hPost(hPilotD, hPostW, hPostH, hPostD);
         
         // horizontal mount points for camera
@@ -73,14 +73,14 @@ difference() {
         rotate([90,0,90])
         // - 6 (10 - 4) == puts the mount points flush on outside
         translate([(nanoX/2 - yHPostWidthCamera/2), 
-            hPostH - railH, 
+            hPostH - railH + 1, 
             (-railW/2 + (railW - hPostD)) - 6
             ])
         hPost(hPilotD, hPostW, hPostH, hPostD);
         
         rotate([90,0,90])
         translate([(nanoX/2 + yHPostWidthCamera/2), 
-            hPostH - railH, 
+            hPostH - railH + 1, 
             (-railW/2 + (railW - hPostD)) - 6
             ])
         hPost(hPilotD, hPostW, hPostH, hPostD);
@@ -88,14 +88,14 @@ difference() {
         // horizontal mount points at the other end
         rotate([90,0,90])
         translate([(nanoX/2 - yHPostWidthCamera/2), 
-            hPostH - railH, 
+            hPostH - railH + 1, 
             (nanoY - (railW/2)) + 6
             ])
         hPost(hPilotD, hPostW, hPostH, hPostD);
         
         rotate([90,0,90])
         translate([(nanoX/2 + yHPostWidthCamera/2), 
-            hPostH - railH, 
+            hPostH - railH + 1, 
             (nanoY - (railW/2)) + 6
             ])
         hPost(hPilotD, hPostW, hPostH, hPostD);

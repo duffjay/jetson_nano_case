@@ -11,13 +11,14 @@
 base_cl = 36.0;      // distance between the holes on the base
 base_height = 13.00; // post height: 10 + rail height: 3
 base_mnt_hght = 8.0; // the base holes are 8mm from bottom
+base_spacer = 8.0;   // add spacer to provide clearance from jetson edge
 // Noctua NF-A4x10 5V PWM
 //      40x10mm Premium Fan
 // https://noctua.at/en/nf-a4x10-flx/specification
 fan_cl = 32.0;       // centerline distance between fan holes
 fan_abv_jet = 8.0;   // fan needs to be above the floor of jetson 
                      // for screw heads to clear
-fan_offset = 20;     // 80/2 - 20 = 20
+fan_offset = 10;     // 80/2 - 20 = 20
                      // heatsink is not on center, it's 20mm offset from jetson CL
 m4_major_dia = 4.1;  // major + clearance
 fan_mnt_face = 8.0;  // mounting face on fan
@@ -39,10 +40,10 @@ difference () {
     union () {
         
         // ----- base mounts ------
-        translate([-base_cl/2,0,0])
-        cylinder(r=base_mnt_face/2, h=plate_z, center=true);
-        translate([+base_cl/2,0,0])
-        cylinder(r=base_mnt_face/2, h=plate_z, center=true);
+        translate([-base_cl/2,0,(base_spacer/2 + plate_z) - plate_z])
+        cylinder(r=base_mnt_face/2, h=plate_z + base_spacer, center=true);
+        translate([+base_cl/2,0, (base_spacer/2 + plate_z) - plate_z])
+        cylinder(r=base_mnt_face/2, h=plate_z + base_spacer, center=true);
         
         // ---- fan mounts ------
         
@@ -102,10 +103,10 @@ difference () {
     {
     // drill holes
         // ----- base mounts ------
-        translate([-base_cl/2,0,0])
-        cylinder(r=m4_major_dia/2, h=plate_z, center=true);
-        translate([+base_cl/2,0,0])
-        cylinder(r=m4_major_dia/2, h=plate_z, center=true);    
+        translate([-base_cl/2,0,(base_spacer/2 + plate_z) - plate_z])
+        cylinder(r=m4_major_dia/2, h=plate_z + base_spacer, center=true);
+        translate([+base_cl/2,0,(base_spacer/2 + plate_z) - plate_z])
+        cylinder(r=m4_major_dia/2, h=plate_z + base_spacer, center=true);    
         
         // fan mounts
         translate([- fan_cl/2 + fan_offset, mnt_height, 0])
