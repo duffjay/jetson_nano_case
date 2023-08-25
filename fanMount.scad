@@ -40,9 +40,9 @@ difference () {
     union () {
         
         // ----- base mounts ------
-        translate([-base_cl/2,0,(base_spacer/2 + plate_z) - plate_z])
+        translate([-base_cl/2,0, -((base_spacer/2 + plate_z) - plate_z)])
         cylinder(r=base_mnt_face/2, h=plate_z + base_spacer, center=true);
-        translate([+base_cl/2,0, (base_spacer/2 + plate_z) - plate_z])
+        translate([+base_cl/2,0, -((base_spacer/2 + plate_z) - plate_z)])
         cylinder(r=base_mnt_face/2, h=plate_z + base_spacer, center=true);
         
         // ---- fan mounts ------
@@ -103,9 +103,9 @@ difference () {
     {
     // drill holes
         // ----- base mounts ------
-        translate([-base_cl/2,0,(base_spacer/2 + plate_z) - plate_z])
+        translate([-base_cl/2,0, -((base_spacer/2 + plate_z) - plate_z)])
         cylinder(r=m4_major_dia/2, h=plate_z + base_spacer, center=true);
-        translate([+base_cl/2,0,(base_spacer/2 + plate_z) - plate_z])
+        translate([+base_cl/2,0, -((base_spacer/2 + plate_z) - plate_z)])
         cylinder(r=m4_major_dia/2, h=plate_z + base_spacer, center=true);    
         
         // fan mounts
